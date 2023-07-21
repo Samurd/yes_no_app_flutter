@@ -1,3 +1,6 @@
+![Imagen de WhatsApp 2023-07-21 a las 16 55 28](https://github.com/Samurd/yes_no_app_flutter/assets/115575972/b129abe9-e634-4cc6-81c6-4b5f1d17df97)
+![Imagen de WhatsApp 2023-07-21 a las 16 55 29](https://github.com/Samurd/yes_no_app_flutter/assets/115575972/911ff4ba-f79a-4dc4-a204-a78b3ec0f2c7)
+
 
 ## Introduction
 
