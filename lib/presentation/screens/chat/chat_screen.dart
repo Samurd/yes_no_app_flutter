@@ -21,7 +21,7 @@ class ChatScreen extends StatelessWidget {
           ),
         ),
         title: const Text(
-          "Name",
+          "ChatBot",
           style: TextStyle(color: Colors.black),
         ),
         titleTextStyle: const TextStyle(
