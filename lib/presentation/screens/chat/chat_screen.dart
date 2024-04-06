@@ -11,22 +11,33 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final chatProvider = context.watch<ChatProvider>();
+    final colors = Theme.of(context).colorScheme;
+
     return Scaffold(
       appBar: AppBar(
+        elevation: 2,
+        leadingWidth: 50,
+        shape:
+            Border(bottom: BorderSide(color: colors.inverseSurface, width: 1)),
         leading: const Padding(
           padding: EdgeInsets.only(left: 15.0),
           child: CircleAvatar(
             backgroundImage: NetworkImage(
-                "https://images.unsplash.com/photo-1550686041-366ad85a1355?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
+                "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2111&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
           ),
         ),
         title: const Text(
           "ChatBot",
-          style: TextStyle(color: Colors.black),
         ),
         titleTextStyle: const TextStyle(
-          fontSize: 25,
+          fontSize: 20,
         ),
+        actions: [
+          IconButton(
+              onPressed: chatProvider.clearChat,
+              icon: const Icon(Icons.autorenew_rounded))
+        ],
       ),
       body: _ChatView(),
     );
@@ -40,7 +51,7 @@ class _ChatView extends StatelessWidget {
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         child: Column(
           children: [
             Expanded(
@@ -56,16 +67,20 @@ class _ChatView extends StatelessWidget {
                     : MyMessageBubble(message: message);
               },
             )),
+
+            chatProvider.messageList.isEmpty
+                ? const Center(
+                    child: Text("Write a message"),
+                  )
+                : Container(),
             // caja de texto
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
 
             MessageFieldBox(
               onValue: (value) => chatProvider.sendMessage(value),
             ),
-
-            const SizedBox(height: 10)
           ],
         ),
       ),

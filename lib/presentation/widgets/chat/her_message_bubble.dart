@@ -15,9 +15,9 @@ class HerMessageBubble extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-              color: colors.secondary, borderRadius: BorderRadius.circular(20)),
+              color: colors.secondary, borderRadius: BorderRadius.circular(10)),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: Text(
               message.text,
               style: const TextStyle(color: Colors.white),
@@ -57,7 +57,7 @@ class ImageBubble extends StatelessWidget {
             height: 230,
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: const Text(
-              "Name esta enviando una imagen..",
+              "sending image",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400),
             ),
           );
